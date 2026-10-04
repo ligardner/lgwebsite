@@ -1,0 +1,17 @@
+Based on the medicine background from Portfolio/Project image/RPS Town hall.pptx, slide 1, and the five project disciplines explicitly supplied by the user.
+Generated using the built-in image tool. Illustrative synthesis rather than a literal technical architecture.
+
+Use case: productivity-visual / compositing.
+Asset type: RPS service-transformation portfolio hero. SQUARE 1:1 canvas, highest available resolution.
+Input image 1 is the reference for the desired SIMPLE, restrained consulting style: paper-white background, dark navy labels, muted pale tones, straight fine grey connectors, with a subdued medicine capsule photograph fading into the top. Keep that calm art direction. Input image 2 is the original PPT medicine background, for source fidelity.
+CHANGE THE DIAGRAM CONTENT COMPLETELY to show the FIVE BIG DISCIPLINES in this complex medicine-publishing transformation project, not the content-production workflow.
+Create five equally prominent, clean, lightly outlined flat diagram nodes labelled exactly:
+'Architecture'
+'Data science'
+'Software engineering'
+'User-centred design'
+'Change management'
+Arrange these five disciplines around one central shared node labelled 'Future publishing service'. Connect all five to that central shared vision with fine grey bidirectional connectors, conveying collaboration and systems thinking, not a linear waterfall process. Use an orderly balanced arrangement: Architecture and Data science above centre; Software engineering at left; User-centred design at right; Change management below centre. Ensure the labels remain clear at small portfolio hero sizes, with short sensible line breaks.
+From the central shared publishing service, one simple connector leads to a modest bottom roadmap line labelled 'UX roadmap', then 'Holistic experience'. Keep this secondary to the five disciplines, with clean separation so no connectors cross through labels. The visual communicates alignment of architecture, data, engineering, design and organisational change around a holistic service.
+Medicine photograph remains muted and desaturated across the upper quarter, subtly fading into a predominantly WHITE canvas; no neon, no glow, no dark diagram background. Professional consulting exhibit, clean editorial hierarchy, ample whitespace. Muted navy, grey and only tiny restrained teal or ochre accents.
+Keep the entire diagram and all labels inside 10% horizontal margins and between 28% and 80% of canvas height so the square can crop safely to a 4:3 web frame. Essential diagram nodes must have comfortable space; minimum text size equivalent to 35 px at 1254 px canvas. No cartoon people, no smartphone/laptop, no UI screens, no data widgets, no decorative 3D objects in the diagram, no invented metrics or dates, no extra role/content-flow labels from reference image 1, no title or watermark. The image should be much simpler than the reference's multi-lane blueprint: only the five disciplines, central shared service, and a minimal roadmap outcome.

@@ -1,0 +1,7 @@
+Source: Projects/RMG/RMG app design case study-2.pptx, slide 13, ppt/media/image19.png.
+Original extracted screen: royal-mail-tracking-source.png.
+
+Use case: precise-object-edit / compositing.
+Asset type: Royal Mail portfolio hero, 4:3 composition.
+Input image 1 is the edit target: Royal Mail phone mockup beside kraft and red parcels. Input image 2 is the original Tracked item screen extracted from slide 13 of the Royal Mail project PowerPoint.
+Change ONLY the contents of the phone display in image 1: replace its red welcome screen and photo with the complete white tracking screen from image 2. Faithfully insert that supplied tracking design, including the status bar and notch, Back and Track header, title 'Tracked item', tracking code 'GVDUEN73D', service 'Royal Mail Tracked 48™', pale grey 'Ready for delivery' card, 'Today between 10:26 am - 2:26 pm', red 'Change delivery options' link, and the vertical red/grey tracking timeline with its supplied event text. Preserve the original screen's exact wording, font hierarchy, spacing and colours; do not invent map graphics or substitute a generic UI. Use the complete screen inside the existing device, matched to its perspective. Preserve the device position, scale, tilt, black frame, parcel positions, red tape, pale studio surface, warm light and soft shadows. Crisp legible screen. Keep full device visible with safe margins for the existing webpage crops. Retain 4:3 canvas at highest available resolution. No additional phones, no watermark, no external text.
