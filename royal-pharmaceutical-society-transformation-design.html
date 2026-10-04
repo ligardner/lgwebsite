@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Li Gardner, Transformation &amp; User-Centred Design Lead: reframed a stalled systems replacement around the publishing service, retiring 23 manual templates with 90%+ adoption in the first rollout."><title>Royal Pharmaceutical Society — One modern publishing service | Li Gardner</title><link rel="stylesheet" href="style.css">
+<style>
+/* Theme tokens: the dark and light templates differ ONLY here. */
+body{--rm-bg:#fafaf8;--rm-surface:#f0f0ec;--rm-text:#2b2c2c;--rm-strong:#101111;--rm-eyebrow:#c41f1c;--rm-deck:#2b2c2c;--rm-diagram:#f0f0ec}
+body.dark{--rm-bg:#0e1010;--rm-surface:#151919;--rm-text:#e6e6e2;--rm-strong:#f5f5f2;--rm-eyebrow:#e8aca2;--rm-deck:#d8d8d4;--rm-diagram:#ffffff}
+
+/* Royal Mail case study — page-scoped styles (prefixed .rm-) so no other page is affected. */
+.rm-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:44px 0 36px;border-bottom:1px solid var(--line)}
+.rm-hero .eyebrow{color:var(--rm-eyebrow);margin-bottom:22px}
+.rm-hero h1{font-size:clamp(38px,4.3vw,56px);line-height:1.05;letter-spacing:-2.2px;margin-bottom:22px;max-width:620px}
+.rm-hero .case-deck{color:var(--rm-deck);font-size:19px;line-height:1.45;max-width:560px;margin-bottom:0}
+.rm-hero-media img{width:100%;aspect-ratio:3/2;height:auto;object-position:58% center}
+.rm-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.rm-stats>div{padding:30px 28px 30px 0}
+.rm-stats>div+div{padding-left:28px;border-left:1px solid var(--line)}
+.rm-stats strong{display:block;font-size:clamp(40px,4.6vw,60px);font-weight:500;line-height:1.05;letter-spacing:-2px;color:var(--red)}
+.rm-stats span{display:block;margin-top:8px;font-size:15px;color:var(--muted)}
+.rm-glance{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin:0;border-bottom:1px solid var(--line)}
+.rm-glance>div{padding:22px 18px 22px 0}
+.rm-glance>div+div{padding-left:18px;border-left:1px solid var(--line)}
+.rm-glance dt{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.rm-glance dd{margin:0;font-size:15px;line-height:1.45;color:var(--rm-text)}
+.rm-section{padding:52px 0;border-bottom:1px solid var(--line)}
+.rm-section-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:30px;flex-wrap:wrap}
+.rm-section-head h2{margin:0;font-size:32px}
+.rm-section-head p{margin:0;color:var(--muted);font-size:15px}
+.rm-star{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;list-style:none;margin:0;padding:0}
+.rm-star li{border-top:2px solid var(--red);padding-top:20px;display:flex;flex-direction:column}
+.rm-star .rm-step{display:flex;justify-content:space-between;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.rm-star .rm-step b{color:var(--red);font-weight:400}
+.rm-star h3{font-size:22px;margin-bottom:12px}
+.rm-star p{font-size:16px;color:var(--muted);margin-bottom:14px}
+.rm-star ul{margin:0 0 14px;padding-left:18px;color:var(--muted);font-size:15px}
+.rm-star ul li{border:0;padding:0 0 6px;display:list-item}
+.rm-star .rm-result{margin-top:auto;padding:14px 16px;background:var(--rm-surface);border-left:2px solid var(--red);color:var(--rm-strong);font-size:15px}
+.rm-flow-wrap{border:1px solid var(--line);background:var(--rm-diagram);padding:30px 28px 26px}
+.rm-flow{display:grid;grid-template-columns:repeat(var(--steps,7),minmax(0,1fr));list-style:none;margin:0 0 26px;padding:0;counter-reset:rm}
+.rm-flow li{position:relative;text-align:center;counter-increment:rm;padding:0 6px}
+.rm-flow li::before{content:counter(rm,decimal-leading-zero);display:flex;align-items:center;justify-content:center;width:52px;height:52px;margin:0 auto 14px;border:1px solid var(--red);border-radius:50%;color:var(--red);font-size:15px;background:var(--rm-bg);position:relative;z-index:1}
+.rm-flow li:not(:last-child)::after{content:'';position:absolute;top:26px;left:calc(50% + 26px);right:calc(-50% + 26px);height:1px;background:var(--red);opacity:.7}
+.rm-flow li.rm-key::before{background:var(--red);color:#fff}
+.rm-flow strong{display:block;font-size:15px;font-weight:500;line-height:1.3}
+.rm-flow small{display:block;margin-top:5px;font-size:12px;color:var(--muted);line-height:1.35}
+.rm-foundation{border-top:1px solid var(--line);padding-top:20px;display:grid;grid-template-columns:auto repeat(var(--items,4),minmax(0,1fr));gap:18px;align-items:center}
+.rm-foundation .artifact-label{margin:0}
+.rm-foundation span:not(.artifact-label){font-size:14px;color:var(--rm-text);border:1px solid var(--line);padding:10px 12px;text-align:center}
+.rm-split{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.rm-split h2{font-size:28px;margin-bottom:22px}
+.rm-contrib{list-style:none;margin:0;padding:0}
+.rm-contrib li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:9px 0;font-size:17px}
+.rm-contrib li::before{content:'';width:16px;height:9px;margin-top:5px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+.rm-contrib small{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+.rm-tools{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.rm-tools li{border:1px solid var(--line);padding:10px 14px;font-size:15px}
+.rm-tools-note{margin-top:22px;font-size:14px;color:var(--muted)}
+
+
+@media(max-width:960px){.rm-glance{grid-template-columns:repeat(3,minmax(0,1fr))}.rm-glance>div:nth-child(4){border-left:0;padding-left:0}.rm-glance>div:nth-child(n+4){border-top:1px solid var(--line)}.rm-star{grid-template-columns:1fr 1fr;row-gap:36px}}
+@media(max-width:760px){.rm-hero{grid-template-columns:1fr;gap:26px;padding:30px 0 28px}.rm-hero h1{font-size:38px;letter-spacing:-1.4px}.rm-hero .case-deck{font-size:17px}.rm-stats{grid-template-columns:1fr}.rm-stats>div,.rm-stats>div+div{padding:20px 0;border-left:0}.rm-stats>div+div{border-top:1px solid var(--line)}.rm-glance{grid-template-columns:1fr 1fr}.rm-glance>div,.rm-glance>div+div{padding:16px 12px 16px 0;border-left:0}.rm-glance>div:nth-child(n+3){border-top:1px solid var(--line)}.rm-glance>div:nth-child(4){padding-left:0}.rm-section{padding:38px 0}.rm-section-head h2{font-size:28px}.rm-star{grid-template-columns:1fr}.rm-flow-wrap{padding:22px 18px}.rm-flow{grid-template-columns:1fr;gap:0}.rm-flow li{display:grid;grid-template-columns:44px 1fr;column-gap:14px;text-align:left;padding:0 0 18px}.rm-flow li::before{width:44px;height:44px;margin:0;grid-row:span 2;font-size:13px}.rm-flow li:not(:last-child)::after{top:44px;bottom:0;left:22px;right:auto;width:1px;height:auto}.rm-flow strong{align-self:end}.rm-foundation{grid-template-columns:1fr 1fr}.rm-foundation .artifact-label{grid-column:1/-1}.rm-split{grid-template-columns:1fr;gap:40px}}
+
+/* Sticky header (this page) */
+header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0 100vmax var(--rm-bg);clip-path:inset(0 -100vmax)}
+/* Narrow next-case banner */
+.rm-next{display:flex;gap:0;align-items:stretch;margin:40px 0 8px;border:1px solid var(--line);background:var(--rm-surface);font-size:15px}
+.rm-next a{display:flex;align-items:center}
+.rm-next-back{padding:16px 22px;border-right:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.rm-next-case{flex:1;gap:18px;padding:16px 22px;min-width:0}
+.rm-next-label{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--red);white-space:nowrap}
+.rm-next-title{flex:1;min-width:0;color:var(--rm-strong)}
+.rm-next-arrow{color:var(--red);font-size:22px;line-height:1;transition:transform .15s}
+.rm-next-case:hover .rm-next-title{color:var(--red)}.rm-next-case:hover .rm-next-arrow{transform:translateX(4px)}
+@media(max-width:760px){.rm-next{flex-direction:column}.rm-next-back{border-right:0;border-bottom:1px solid var(--line);padding:12px 16px}.rm-next-case{flex-wrap:wrap;gap:6px 12px;padding:14px 16px}.rm-next-label{width:100%}}
+@media(prefers-reduced-motion:reduce){.rm-next-arrow{transition:none}}
+.rm-next-thumb{flex:none;width:112px;aspect-ratio:247/184;border:1px solid var(--line)}
+.rm-next-case{padding-top:12px;padding-bottom:12px}
+.rm-next-text{flex:1;min-width:0;display:flex;align-items:center;gap:18px}
+.rm-next-case:hover .rm-next-thumb{border-color:var(--red)}
+@media(max-width:760px){.rm-next-case{flex-wrap:nowrap;gap:14px}.rm-next-thumb{width:84px}.rm-next-text{flex-direction:column;align-items:flex-start;gap:4px}}
+.rm-next-case{padding:0 22px 0 0}
+.rm-next-thumb{width:120px;border:0;border-right:1px solid var(--line)}
+.rm-next-case:hover .rm-next-thumb{border-color:var(--line)}
+@media(max-width:760px){.rm-next-case{flex-direction:column;align-items:stretch;padding:0}.rm-next-thumb{width:100%;border-right:0;border-bottom:1px solid var(--line)}.rm-next-text{padding:14px 16px 0}.rm-next-arrow{align-self:flex-end;padding:0 16px 14px}}
+.rm-section:has(+ .rm-next){border-bottom:0;padding-bottom:12px}
+/* Diagram panel always uses light ink, whatever the page theme */
+.rm-flow-wrap{color:var(--ink);--line:#d1d1cd;--muted:#5c6060;--rm-text:#2b2c2c;--rm-bg:var(--rm-diagram)}
+/* Icon variant of the diagram (adapted from the visual mockups) */
+.rm-flow-wrap{--rm-tint:#fbe7e6;--rm-lane:#eef0f0}
+.rm-flow--icons li::before{content:none}
+.rm-flow--icons .rm-icon{display:flex;align-items:center;justify-content:center;width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:var(--rm-tint);color:var(--red)}
+.rm-flow--icons .rm-icon svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.rm-flow--icons li.rm-key .rm-icon{background:var(--red);color:#fff}
+.rm-flow--icons li:not(:last-child)::after{content:'\2192';top:20px;left:auto;right:-10px;width:auto;height:auto;background:none;opacity:1;color:var(--muted);font-size:20px;line-height:1}
+.rm-lanes{display:grid;grid-template-columns:repeat(var(--steps,5),minmax(0,1fr));gap:8px;margin-top:4px}
+.rm-lanes span{padding:12px 14px;text-align:center;font-size:15px;color:var(--rm-text)}
+.rm-lanes .rm-lane-ai{grid-column:span var(--ai,2);background:var(--rm-lane)}
+.rm-lanes .rm-lane-human{grid-column:span calc(var(--steps,5) - var(--ai,2));background:var(--rm-tint)}
+.rm-lanes b{font-weight:600}
+@media(max-width:760px){.rm-flow--icons li{grid-template-columns:52px 1fr}.rm-flow--icons .rm-icon{width:52px;height:52px;margin:0;grid-row:span 2}.rm-flow--icons .rm-icon svg{width:24px;height:24px}.rm-flow--icons li:not(:last-child)::after{content:'';top:52px;bottom:0;left:26px;right:auto;width:1px;height:auto;background:var(--line);font-size:0}.rm-lanes{grid-template-columns:1fr}.rm-lanes .rm-lane-ai,.rm-lanes .rm-lane-human{grid-column:auto}}
+/* Swimlane layer for detailed diagrams (optional) */
+.rm-swim{margin-top:26px;border-top:1px solid var(--line);padding-top:22px;display:grid;gap:10px}
+.rm-swim-row{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center}
+.rm-swim-label{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.rm-swim-lane{margin:0;padding:0;list-style:none}
+.rm-swim-pair{display:flex;align-items:center;gap:12px;background:var(--rm-lane);padding:11px 14px}
+.rm-swim-pair span{flex:1;text-align:center;font-size:15px}
+.rm-swim-pair i{font-style:normal;color:var(--muted)}
+.rm-swim-steps{display:grid;grid-template-columns:repeat(var(--lanes,4),minmax(0,1fr));gap:3px}
+.rm-swim-steps li{background:var(--rm-tint);padding:10px 22px;text-align:center;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,12px 50%)}
+.rm-swim-steps li:first-child{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%)}
+.rm-swim-steps b{display:block;font-size:15px;font-weight:500}
+.rm-swim-steps small{display:block;font-size:12px;color:var(--muted)}
+.rm-swim-band{background:var(--rm-band,var(--red));color:#fff;text-align:center;padding:11px 14px;font-size:15px}
+@media(max-width:760px){.rm-swim-row{grid-template-columns:1fr;gap:6px}.rm-swim-steps{grid-template-columns:1fr 1fr}.rm-swim-steps li,.rm-swim-steps li:first-child{clip-path:none;padding:10px}.rm-swim-pair{flex-wrap:wrap;gap:6px 10px}.rm-swim-pair span{flex:0 1 auto}}
+@media(max-width:760px){.rm-flow--icons li strong:last-child{grid-row:span 2;align-self:center}}
+/* Diagram: approved style on a white canvas */
+.rm-flow-wrap{background:#fff;--rm-bg:#fff}
+.rm-swim-steps{gap:10px}
+.rm-swim-steps li,.rm-swim-steps li:first-child{clip-path:none;background:none;border:1px solid var(--line);padding:10px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rm-swim-steps b{font-size:14px;font-weight:400}
+.rm-swim-pair{background:none;border:1px solid var(--line)}
+@media(max-width:760px){.rm-flow li strong:last-child{grid-row:span 2;align-self:center}.rm-swim-steps{grid-template-columns:1fr}}
+/* Diagram accent sampled from the hero image: RPS navy + green */
+.rm-flow-wrap{--dg-1:#283d5c;--dg-2:#1b7b60}
+.rm-flow li::before{border-color:var(--dg-1);color:var(--dg-1)}
+.rm-flow li:not(:last-child)::after{background:var(--dg-1)}
+.rm-flow li.rm-key::before{background:var(--dg-1);border-color:var(--dg-1);color:#fff}
+.rm-swim-label,.rm-foundation .artifact-label{color:var(--dg-2,var(--muted))}
+.rm-hero-media img{aspect-ratio:519/363}
+</style></head>
+<body class="dark"><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="index.html"><span class="brand-name">LI GARDNER</span><span class="brand-tagline">Research • Design • AI experience</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="work.html" >Work</a><a href="about.html" >About</a><a href="cv.html" >CV</a><span class="nav-contact"><a class="nav-icon" href="https://www.linkedin.com/in/ligardner/" target="_blank" rel="noopener" aria-label="Li Gardner on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" fill="#fff"/><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.31h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.95 3.52 4.49v5.27Z"/></svg></a></span></nav></header><main id="main">
+
+<section class="rm-hero">
+  <div>
+    <div class="eyebrow">Royal Pharmaceutical Society / Publishing / Enterprise transformation</div>
+    <h1>From 13 legacy systems to one modern publishing service.</h1>
+    <p class="case-deck">I led the service design that redefined the future publishing service, aligning business, data and architecture around a clear North Star, then carried it through experience architecture and a UX roadmap into implementation.</p>
+  </div>
+  <div class="rm-hero-media"><img src="assets/rps-hero.jpg" alt="Illustrative content publishing workspace on a laptop and phone"><div class="visual-note">Illustrative product visual</div></div>
+</section>
+
+<section class="rm-stats" aria-label="Key results">
+  <div><strong>23</strong><span>Spreadsheet templates and manual processes retired</span></div>
+  <div><strong>60%+</strong><span>Reduction in operational complexity and manual effort</span></div>
+  <div><strong>90%+</strong><span>User adoption in the first rollout</span></div>
+</section>
+
+<dl class="rm-glance" aria-label="Project at a glance">
+  <div><dt>My role</dt><dd>Transformation &amp; User-Centred Design Lead</dd></div>
+  <div><dt>Type</dt><dd>Consulting + Delivery</dd></div>
+  <div><dt>Legacy</dt><dd>13 legacy systems on the retirement path</dd></div>
+  <div><dt>Focus</dt><dd>Publishing service · Operating model · Legacy migration · Adoption</dd></div>
+  <div><dt>Design</dt><dd>Service model · Experience architecture · UX roadmap · UX/UI design</dd></div>
+  <div><dt>Research</dt><dd>Stakeholder interviews · Process modelling · Co-design workshops</dd></div>
+</dl>
+
+<section class="rm-section" aria-labelledby="star-title">
+  <div class="rm-section-head"><h2 id="star-title">What I did, in four moves</h2><p>Situation · Task · Action · Result</p></div>
+  <ol class="rm-star">
+    <li>
+      <div class="rm-step"><span>01 Challenge</span><b>Situation</b></div>
+      <h3>The programme was replacing technology without defining the service.</h3>
+      <p>It was framed as a systems replacement, with 13 legacy systems and many manual processes. Without a shared view of how publishing should work, priorities diverged and the programme stalled several times.</p>
+      <p class="rm-result">I reframed it around the publishing service and what users needed to achieve.</p>
+    </li>
+    <li>
+      <div class="rm-step"><span>02 Define</span><b>Task</b></div>
+      <h3>Use service design to define the future service model.</h3>
+      <p>I mapped user and operational needs, content flows, governance and safety requirements, and aligned the model with data and technical architecture.</p>
+      <p class="rm-result">A shared North Star for the transformation.</p>
+    </li>
+    <li>
+      <div class="rm-step"><span>03 Architect</span><b>Action</b></div>
+      <h3>Turn the service model into a North Star experience architecture.</h3>
+      <ul><li>End-to-end journeys</li><li>Information architecture</li><li>Key workflows</li><li>Interaction patterns</li></ul>
+      <p class="rm-result">A clear structure for product and design teams to build from.</p>
+    </li>
+    <li>
+      <div class="rm-step"><span>04 Deliver</span><b>Result</b></div>
+      <h3>Create the UX roadmap and guide design into implementation.</h3>
+      <p>I translated the North Star into a phased UX roadmap, then guided detailed UX/UI design through implementation, aligned with the service model and architectural constraints.</p>
+      <p class="rm-result"><b>90%+ adoption</b> in the first rollout, with 23 manual templates retired.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="rm-section" aria-labelledby="flow-title">
+  <div class="rm-section-head"><h2 id="flow-title">From fragmented systems to a modern publishing service</h2><p>The design progression I led</p></div>
+  <figure class="rm-flow-wrap" style="margin:0">
+    <ol class="rm-flow" style="--steps:7">
+      <li><strong>Current service</strong><small>13 systems, manual processes</small></li>
+      <li class="rm-key"><strong>Future service model</strong><small>End-to-end publishing service</small></li>
+      <li><strong>Data &amp; architecture alignment</strong><small>Content, data, systems</small></li>
+      <li><strong>North Star experience architecture</strong><small>Journeys, IA, workflows</small></li>
+      <li><strong>UX roadmap</strong><small>Phased design and delivery</small></li>
+      <li><strong>Detailed UX/UI design</strong><small>Key flows and components</small></li>
+      <li><strong>Implementation</strong><small>Iterative delivery and adoption</small></li>
+    </ol>
+    <figcaption class="rm-swim">
+      <div class="rm-swim-row"><span class="rm-swim-label">Continuously aligned layers</span><ol class="rm-swim-lane rm-swim-steps" style="--lanes:3"><li><b>Service</b><small>People · process · content · governance</small></li><li><b>Experience</b><small>Journeys · workflows · IA · interaction · design system</small></li><li><b>Technology</b><small>Data · systems · platform · architecture</small></li></ol></div>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="rm-section rm-split">
+  <div>
+    <div class="artifact-label">My contribution</div>
+    <h2>What I owned</h2>
+    <ul class="rm-contrib">
+      <li><span>Reframed the programme around the future publishing service</span></li>
+      <li><span>Defined the future-state service model through service design</span></li>
+      <li><span>Aligned service design with data and technical architecture</span></li>
+      <li><span>Created the North Star experience architecture</span></li>
+      <li><span>Translated the service model into UX and UI direction</span></li>
+      <li><span>Created the phased user-experience roadmap</span></li>
+      <li><span>Guided detailed UX/UI design through implementation</span></li>
+      <li><span>Maintained design coherence from strategy through delivery</span></li>
+    </ul>
+  </div>
+  <div>
+    <div class="artifact-label">Methods, frameworks &amp; toolkit</div>
+    <h2>How I worked</h2>
+    <ul class="rm-tools">
+      <li>Stakeholder interviews</li>
+      <li>Service blueprinting</li>
+      <li>Current / future-state mapping</li>
+      <li>Operating model design</li>
+      <li>Co-design workshops</li>
+      <li>Process modelling</li>
+      <li>Experience architecture</li>
+      <li>Design principles</li>
+      <li>Outcome &amp; measure framing</li>
+      <li>Roadmap planning</li>
+      <li>UX/UI design</li>
+      <li>Change &amp; adoption planning</li>
+    </ul>
+  </div>
+</section>
+
+<nav class="rm-next" aria-label="Next case study"><a class="rm-next-back" href="work.html">← All work</a><a class="rm-next-case" href="royal-mail-product-service-design.html"><img class="rm-next-thumb" src="assets/royal-mail-light.png" alt=""><span class="rm-next-text"><span class="rm-next-label">Next case study</span><span class="rm-next-title">Royal Mail — Refocusing a national product on the journeys that matter.</span></span><span class="rm-next-arrow" aria-hidden="true">→</span></a></nav></main><footer><span class="footer-rights">© All rights reserved by Li Gardner 2026</span><div class="footer-links"><a class="footer-linkedin" href="https://www.linkedin.com/in/ligardner/" target="_blank" rel="noopener" aria-label="Contact me on LinkedIn">Contact me on <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" fill="#fff"/><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.31h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.95 3.52 4.49v5.27Z"/></svg></a></div><p class="footer-note">The case studies on this site describe my personal contribution, from my own perspective. They are simplified summaries, not official accounts, and do not represent the views of any client or employer. Content is shared for portfolio purposes only and is forbidden to be reproduced or used commercially.</p></footer></body></html>
