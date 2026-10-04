@@ -127,32 +127,11 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
 .rm-flow li.rm-key::before{background:var(--dg-1);border-color:var(--dg-1);color:#fff}
 .rm-swim-label,.rm-foundation .artifact-label{color:var(--dg-2,var(--muted))}
 /* case pages: no footer divider */footer::before{display:none}
-/* Simplified service blueprint */
-.bp-wrap{padding:24px 24px 18px}
-.bp-scroll{overflow-x:auto}
-.bp{min-width:920px}
-.bp-row{display:grid;grid-template-columns:190px repeat(6,minmax(0,1fr));align-items:center;min-height:30px;border-top:1px solid #eeeeea}
-.bp-row>span{grid-row:1}
-.bp-label{font-size:13px;line-height:1.25;color:var(--ink);padding:4px 10px 4px 0}
-.bp-label small{display:block;font-size:11px;color:var(--muted)}
-.bp-head{border-top:0;align-items:stretch}
-.bp-stage{margin:0 3px 8px;padding:10px;border:1px solid var(--dg-1);background:color-mix(in srgb,var(--dg-1) 8%,#fff);text-align:center}
-.bp-stage b{display:block;font-weight:400;font-size:12px;color:var(--dg-1)}
-.bp-stage strong{display:block;font-size:13px;font-weight:600;line-height:1.25;color:var(--ink)}
-.bp-stage small{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.3}
-.bp-group{margin-top:12px;padding:6px 0;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dg-2);border-top:1px solid var(--line)}
-.bp-bar,.bp-dot{height:8px;margin:0 6px;border:1px solid var(--dg-1);background:color-mix(in srgb,var(--dg-1) 22%,#fff);border-radius:2px}
-.bp-dot{width:10px;height:10px;border-radius:50%;margin:0 auto}
-.bp-gates,.bp-opps{display:flex;justify-content:center;gap:10px}
-.bp-gates i{width:2px;height:18px;background:repeating-linear-gradient(var(--red) 0 3px,transparent 3px 6px)}
-.bp-opps i,.bp-legend .bp-opp{width:9px;height:9px;border:1.5px solid var(--dg-2);transform:rotate(45deg);display:inline-block}
-.bp-legend{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
-.bp-legend span{display:inline-flex;align-items:center;gap:8px}
-.bp-legend .bp-bar{display:inline-block;width:26px;margin:0}
-.bp-legend .bp-dot{display:inline-block;margin:0}
-.bp-legend .bp-gate{display:inline-block;width:2px;height:14px;background:repeating-linear-gradient(var(--red) 0 3px,transparent 3px 6px)}
-.bp-note{flex-basis:100%}
-.bp-wrap{--dg-1:#283d5c;--dg-2:#1b7b60}
+/* Step circles: all solid red, same style */
+.rm-flow li::before{background:var(--red);border-color:var(--red);color:#fff}
+/* Supporting boxes: light blue fill, lighter than the outline */
+.rm-flow-wrap{--box-fill:#eef4fb;--box-line:#b9cfe8}
+.rm-swim-steps li,.rm-swim-steps li:first-child,.rm-swim-pair,.rm-foundation span:not(.artifact-label){background:var(--box-fill);border-color:var(--box-line)}
 </style></head>
 <body class="dark"><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="index.html"><span class="brand-name">LI GARDNER</span><span class="brand-tagline">Research • Design • AI experience</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="work.html" >Work</a><a href="about.html" >About</a><a href="cv.html" >CV</a><span class="nav-contact"><a class="nav-icon" href="https://www.linkedin.com/in/ligardner/" target="_blank" rel="noopener" aria-label="Li Gardner on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" fill="#fff"/><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.31h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.95 3.52 4.49v5.27Z"/></svg></a></span></nav></header><main id="main">
 
@@ -173,7 +152,7 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
 
 <dl class="rm-glance" aria-label="Project at a glance">
   <div><dt>My role</dt><dd>Transformation &amp; User-Centred Design Lead</dd></div>
-  <div><dt>Type</dt><dd>Consulting + Delivery</dd></div>
+  <div><dt>Type</dt><dd>Consulting + Delivery (2023–2024)</dd></div>
   <div><dt>Legacy</dt><dd>10+ legacy systems on the retirement path</dd></div>
   <div><dt>Focus</dt><dd>Publishing service · Operating model · Legacy migration · Adoption</dd></div>
   <div><dt>Design</dt><dd>Service model · Experience architecture · UX roadmap · UX/UI design</dd></div>
@@ -215,7 +194,7 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
   <figure class="rm-flow-wrap" style="margin:0">
     <ol class="rm-flow" style="--steps:7">
       <li><strong>Current service</strong><small>10+ systems, manual processes</small></li>
-      <li class="rm-key"><strong>Future service model</strong><small>End-to-end publishing service</small></li>
+      <li><strong>Future service model</strong><small>End-to-end publishing service</small></li>
       <li><strong>Data &amp; architecture alignment</strong><small>Content, data, systems</small></li>
       <li><strong>North Star experience architecture</strong><small>Journeys, IA, workflows</small></li>
       <li><strong>UX roadmap</strong><small>Phased design and delivery</small></li>
@@ -227,15 +206,6 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
     </figcaption>
   </figure>
 </section>
-
-<section class="rm-section" aria-labelledby="bp-title">
-  <div class="rm-section-head"><h2 id="bp-title">One content update touches every layer of the service</h2><p>Simplified service blueprint I created</p></div>
-  <figure class="rm-flow-wrap bp-wrap" style="margin:0">
-    <div class="bp-scroll"><div class="bp"><div class="bp-row bp-head"><div class="bp-label">Service stage</div><div class="bp-stage"><b>01</b><strong>Trigger update</strong><small>Verified source updates</small></div><div class="bp-stage"><b>02</b><strong>Plan batch</strong><small>Affected content identified</small></div><div class="bp-stage"><b>03</b><strong>Allocate</strong><small>Right people, right roles</small></div><div class="bp-stage"><b>04</b><strong>Produce content batch</strong><small>Accurate, reviewed content</small></div><div class="bp-stage"><b>05</b><strong>QA &amp; release</strong><small>Ready content assembled</small></div><div class="bp-stage"><b>06</b><strong>Deliver to customer</strong><small>Products updated on time</small></div></div><div class="bp-row bp-marks"><div class="bp-label">Governance gates</div><span class="bp-gates" style="grid-column:5/6"><i></i><i></i><i></i><i></i></span></div><div class="bp-row bp-marks"><div class="bp-label">Opportunities found</div><span class="bp-opps" style="grid-column:3/4"><i></i></span><span class="bp-opps" style="grid-column:5/6"><i></i><i></i><i></i><i></i></span><span class="bp-opps" style="grid-column:6/7"><i></i></span><span class="bp-opps" style="grid-column:7/8"><i></i></span></div><div class="bp-group">People</div><div class="bp-row "><div class="bp-label">Content writers<small>Clinical &amp; non-clinical</small></div><span class="bp-dot" style="grid-column:2/3"></span><span class="bp-bar" style="grid-column:5/6"></span></div><div class="bp-row "><div class="bp-label">Reviewers &amp; approvers<small>Independent checks</small></div><span class="bp-bar" style="grid-column:5/6"></span></div><div class="bp-row "><div class="bp-label">External advisors<small>Specialist input</small></div><span class="bp-dot" style="grid-column:5/6"></span></div><div class="bp-row "><div class="bp-label">Service operators<small>Orchestrate delivery</small></div><span class="bp-dot" style="grid-column:3/4"></span><span class="bp-bar" style="grid-column:6/8"></span></div><div class="bp-row "><div class="bp-label">Content operators<small>Batches &amp; teams</small></div><span class="bp-bar" style="grid-column:3/5"></span><span class="bp-dot" style="grid-column:5/6"></span></div><div class="bp-row "><div class="bp-label">Support &amp; product<small>Change and platform</small></div><span class="bp-dot" style="grid-column:3/4"></span><span class="bp-bar" style="grid-column:5/7"></span><span class="bp-dot" style="grid-column:7/8"></span></div><div class="bp-group">Channels</div><div class="bp-row "><div class="bp-label">Workflow tool</div><span class="bp-dot" style="grid-column:4/5"></span><span class="bp-dot" style="grid-column:5/6"></span><span class="bp-dot" style="grid-column:7/8"></span></div><div class="bp-row "><div class="bp-label">Data platform</div><span class="bp-dot" style="grid-column:3/4"></span><span class="bp-bar" style="grid-column:5/6"></span><span class="bp-dot" style="grid-column:7/8"></span></div><div class="bp-row "><div class="bp-label">Release pipeline</div><span class="bp-dot" style="grid-column:3/4"></span><span class="bp-bar" style="grid-column:6/7"></span></div><div class="bp-row "><div class="bp-label">Email</div><span class="bp-bar" style="grid-column:2/4"></span><span class="bp-dot" style="grid-column:5/6"></span><span class="bp-dot" style="grid-column:7/8"></span></div><div class="bp-row "><div class="bp-label">Customer products</div><span class="bp-bar" style="grid-column:7/8"></span></div><div class="bp-group">Platform &amp; data</div><div class="bp-row "><div class="bp-label">Search &amp; batch UX</div><span class="bp-bar" style="grid-column:2/4"></span></div><div class="bp-row "><div class="bp-label">Editorial workflows<small>Internal &amp; external</small></div><span class="bp-bar" style="grid-column:5/6"></span></div><div class="bp-row "><div class="bp-label">Structured content model</div><span class="bp-bar" style="grid-column:3/6"></span></div><div class="bp-row "><div class="bp-label">Source &amp; reference data</div><span class="bp-bar" style="grid-column:2/4"></span></div><div class="bp-row "><div class="bp-label">Metadata &amp; versions</div><span class="bp-bar" style="grid-column:6/8"></span></div><div class="bp-row "><div class="bp-label">Workflow &amp; content services</div><span class="bp-bar" style="grid-column:3/7"></span></div><div class="bp-row "><div class="bp-label">Publishing APIs &amp; integrations</div><span class="bp-bar" style="grid-column:6/8"></span></div><div class="bp-group">Infrastructure</div><div class="bp-row "><div class="bp-label">Cloud content platform<small>Single-sourced</small></div><span class="bp-bar" style="grid-column:2/8"></span></div></div></div>
-    <figcaption class="bp-legend"><span><i class="bp-bar"></i>Active across the stage</span><span><i class="bp-dot"></i>Touchpoint</span><span><i class="bp-opp"></i>Improvement opportunity</span><span><i class="bp-gate"></i>Governance gate</span><span class="bp-note">Simplified and anonymised from one of four value streams I mapped.</span></figcaption>
-  </figure>
-</section>
-
 <section class="rm-section rm-split">
   <div>
     <div class="artifact-label">My contribution</div>

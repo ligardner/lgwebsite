@@ -135,6 +135,36 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
 .rm-flow li.rm-key::before{background:var(--dg-1);border-color:var(--dg-1);color:#fff}
 .rm-swim-label,.rm-foundation .artifact-label{color:var(--dg-2,var(--muted))}
 /* case pages: no footer divider */footer::before{display:none}
+/* Step circles: all solid red, same style */
+.rm-flow li::before{background:var(--red);border-color:var(--red);color:#fff}
+.rm-flow--icons .rm-icon{background:var(--red);color:#fff}
+/* AXA diagram: member journey on a shared design foundation (mockup layout, template colours) */
+.ax{--box-fill:#eef4fb;--box-line:#b9cfe8;padding:24px}
+.ax-label{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.ax>.ax-label{margin-bottom:12px}
+.ax-top{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:start}
+.ax-member{text-align:center}
+.ax-avatar{display:flex;align-items:center;justify-content:center;width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:var(--box-fill);border:1px solid var(--box-line);color:var(--ink)}
+.ax-avatar svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ax-member strong{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.ax-member small{display:block;font-size:12px;line-height:1.3;color:var(--muted)}
+.ax-journey{display:grid;grid-template-columns:1fr 24px 150px;align-items:center}
+.ax-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.ax-flow li{position:relative;text-align:center}
+.ax-flow li:not(:last-child)::after{content:'→';position:absolute;right:-9px;top:6px;color:var(--muted);font-size:13px}
+.ax-n{display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0 auto 8px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:500}
+.ax-flow strong{display:block;font-size:12.5px;font-weight:500;line-height:1.3;color:var(--ink)}
+.ax-arr{font-style:normal;text-align:center;color:var(--muted)}
+.ax-out{background:var(--box-fill);border:1px solid var(--box-line);padding:12px;text-align:center;font-size:14px;font-weight:600;color:var(--ink)}
+.ax-found{display:flex;flex-wrap:wrap;margin-top:14px;background:var(--box-fill);border:1px solid var(--box-line)}
+.ax-found span{flex:1 1 auto;text-align:center;font-size:13px;padding:9px 10px;color:var(--ink)}
+.ax-found span+span{border-left:1px solid var(--box-line)}
+.ax-row{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;margin-top:12px}
+.ax-row:first-of-type{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.ax-boxes{display:flex;flex-wrap:wrap;gap:8px}
+.ax-boxes span{flex:1 1 0;min-width:120px;text-align:center;font-size:13px;padding:10px;background:var(--box-fill);border:1px solid var(--box-line);color:var(--ink)}
+@media(max-width:1000px){.ax-journey{grid-template-columns:1fr}.ax-arr{transform:rotate(90deg);margin:6px 0}.ax-flow{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:16px}.ax-flow li::after{display:none}}
+@media(max-width:760px){.ax{padding:14px}.ax-top,.ax-row{grid-template-columns:1fr;gap:10px}.ax-flow{grid-template-columns:1fr}.ax-flow li{display:flex;align-items:center;gap:12px;text-align:left}.ax-n{margin:0;flex:none}.ax-flow strong br{display:none}.ax-found{flex-direction:column}.ax-found span+span{border-left:0;border-top:1px solid var(--box-line)}.ax-boxes span{flex:1 1 100%}}
 </style></head>
 <body><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="index.html"><span class="brand-name">LI GARDNER</span><span class="brand-tagline">Research • Design • AI experience</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="work.html" >Work</a><a href="about.html" >About</a><a href="cv.html" >CV</a><span class="nav-contact"><a class="nav-icon" href="https://www.linkedin.com/in/ligardner/" target="_blank" rel="noopener" aria-label="Li Gardner on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" fill="#fff"/><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.31h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.95 3.52 4.49v5.27Z"/></svg></a></span></nav></header><main id="main">
 
@@ -156,7 +186,7 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
 <dl class="rm-glance" aria-label="Project at a glance">
   <div><dt>My role</dt><dd>Design Lead</dd></div>
   <div><dt>Type</dt><dd>Consulting + Delivery</dd></div>
-  <div><dt>Duration</dt><dd>10 months</dd></div>
+  <div><dt>Duration</dt><dd>10 months (2020–2021)</dd></div>
   <div><dt>Focus</dt><dd>Digital health · Behaviour change · Mobile product · Service architecture</dd></div>
   <div><dt>Design</dt><dd>UI to business model · Experience architecture · Design system</dd></div>
   <div><dt>Research</dt><dd>Member &amp; clinical research · Co-design with clinical experts · User testing</dd></div>
@@ -193,23 +223,18 @@ header{position:sticky;top:0;z-index:20;background:var(--rm-bg);box-shadow:0 0 0
 </section>
 
 <section class="rm-section" aria-labelledby="flow-title">
-  <div class="rm-section-head"><h2 id="flow-title">Connecting science, service and technology into one health experience</h2><p>Design as the connective layer I led</p></div>
-  <figure class="rm-flow-wrap" style="margin:0">
-    <ol class="rm-flow" style="--steps:9">
-      <li><strong>Member need</strong></li>
-      <li><strong>Clinical + behavioural science</strong></li>
-      <li><strong>Value proposition</strong></li>
-      <li><strong>Expert workflow</strong></li>
-      <li class="rm-key"><strong>Mobile experience</strong></li>
-      <li><strong>Clinical checkpoints</strong><small>Escalation</small></li>
-      <li><strong>Partner capability</strong></li>
-      <li><strong>Commercial model</strong></li>
-      <li><strong>Reusable architecture</strong><small>Service + technology</small></li>
-    </ol>
-    <figcaption class="rm-swim">
-      <div class="rm-swim-row"><span class="rm-swim-label">End-to-end process</span><ol class="rm-swim-lane rm-swim-steps" style="--lanes:6"><li><b>User &amp; market research</b></li><li><b>UI &amp; visual</b></li><li><b>UX &amp; product</b></li><li><b>Service design</b></li><li><b>Experience architecture</b></li><li><b>Business design</b></li></ol></div>
-      <div class="rm-swim-row"><span class="rm-swim-label">Ecosystem</span><div class="rm-swim-lane rm-swim-pair rm-swim-eco"><span>Members</span><i aria-hidden="true">·</i><span>Clinicians</span><i aria-hidden="true">·</i><span>Behavioural scientists</span><i aria-hidden="true">·</i><span>Product</span><i aria-hidden="true">·</i><span>Marketing</span><i aria-hidden="true">·</i><span>Legal</span><i aria-hidden="true">·</i><span>Sales</span><i aria-hidden="true">·</i><span>Partners</span><i aria-hidden="true">·</i><span>Commercial</span><i aria-hidden="true">·</i><span>Architecture</span><i aria-hidden="true">·</i><span>Engineering</span></div></div>
-    </figcaption>
+  <div class="rm-section-head"><h2 id="flow-title">One design system behind every member journey</h2><p>The scalable service and design foundation I built</p></div>
+  <figure class="rm-flow-wrap ax" style="margin:0">
+    <div class="ax-label">Member experience</div>
+    <div class="ax-top">
+      <div class="ax-member"><span class="ax-avatar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><strong>Member</strong><small>Self-service with expert guidance</small></div>
+      <div class="ax-main">
+        <div class="ax-journey"><ol class="ax-flow"><li><b class="ax-n">01</b><strong>Onboarding <br>&amp; eligibility</strong></li><li><b class="ax-n">02</b><strong>Assessment <br>&amp; insights</strong></li><li><b class="ax-n">03</b><strong>Personalised <br>plan</strong></li><li><b class="ax-n">04</b><strong>Content &amp; <br>interventions</strong></li><li><b class="ax-n">05</b><strong>Progress <br>&amp; feedback</strong></li><li><b class="ax-n">06</b><strong>Clinical <br>escalation</strong></li><li><b class="ax-n">07</b><strong>Completion <br>&amp; next steps</strong></li></ol><i class="ax-arr" aria-hidden="true">→</i><div class="ax-out">Multiple programmes and segments</div></div>
+        <div class="ax-found"><span>Design system</span><span>Reusable components</span><span>Common service patterns</span><span>Content and clinical logic</span></div>
+      </div>
+    </div>
+    <div class="ax-row"><span class="ax-label">Expert &amp; partner layer</span><div class="ax-boxes"><span>Clinicians</span><span>Behavioural scientists</span><span>Partners</span><span>AXA Health</span><span>Technology</span></div></div>
+    <div class="ax-row"><span class="ax-label">Enabling layer</span><div class="ax-boxes"><span>Governance &amp; clinical assurance</span><span>Data &amp; integration</span><span>Commercial model</span><span>Operations</span></div></div>
   </figure>
 </section>
 

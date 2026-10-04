@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Li Gardner, Strategic Service Design Lead: after a merger, modelled a supply-chain finance operation, narrowed three modules to one priority MVP and delivered a development-ready design in 8 weeks."><title>GSCF — Redesigning a supply-chain finance service | Li Gardner</title><link rel="stylesheet" href="style.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Li Gardner, Strategic Service Design Lead: after a merger, modelled a supply-chain finance operation, narrowed three modules to one priority MVP and delivered a development-ready design in 8 weeks."><title>GSCF — Supply-chain finance service design | Li Gardner</title><link rel="stylesheet" href="style.css">
 <style>
 /* Theme tokens: the dark and light templates differ ONLY here. */
 body{--rm-bg:#fafaf8;--rm-surface:#f0f0ec;--rm-text:#2b2c2c;--rm-strong:#101111;--rm-eyebrow:#c41f1c;--rm-deck:#2b2c2c;--rm-diagram:#f0f0ec}
@@ -133,13 +133,41 @@ body{--case-accent:#22534a;--case-accent-soft:#e2eeea}
 .rm-flow li.rm-key::before{background:var(--dg-1);border-color:var(--dg-1);color:#fff}
 .rm-swim-label,.rm-foundation .artifact-label{color:var(--dg-2,var(--muted))}
 /* case pages: no footer divider */footer::before{display:none}
+/* Step circles: all solid red, same style */
+.rm-flow li::before{background:var(--red);border-color:var(--red);color:#fff}
+.rm-flow--icons .rm-icon{background:var(--red);color:#fff}
+/* GSCF diagram: step boxes + service lanes (mockup layout, template colours) */
+.gs{--box-fill:#eef4fb;--box-line:#b9cfe8;--cust:color-mix(in srgb,var(--red) 7%,#fff);padding:24px}
+.gs-ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;color:var(--ink)}
+.gs-steps{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:26px}
+.gs-steps li{position:relative;background:var(--box-fill);border:1px solid var(--box-line);padding:12px 10px;text-align:center}
+.gs-steps li:not(:last-child)::after{content:'→';position:absolute;right:-20px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:15px}
+.gs-n{display:flex;align-items:center;justify-content:center;width:28px;height:28px;margin:0 auto 8px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:500}
+.gs-steps strong{display:block;font-size:13.5px;font-weight:600;line-height:1.25;color:var(--ink)}
+.gs-steps small,.gs-chev small{display:block;font-size:12px;line-height:1.3;color:var(--muted);margin-top:3px}
+.gs-lanes{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:10px}
+.gs-row{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}
+.gs-label{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.gs-lane{margin:0;padding:0;list-style:none;font-size:14px;color:var(--ink)}
+.gs-lane span{display:inline-flex;align-items:center;gap:8px}
+.gs-x{font-style:normal;color:var(--muted)}
+.gs-cust{display:flex;justify-content:space-around;align-items:center;background:var(--cust);border:1px solid color-mix(in srgb,var(--red) 22%,#fff);padding:11px 14px}
+.gs-chev{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.gs-chev li{background:var(--box-fill);padding:10px 26px;text-align:center;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%,14px 50%)}
+.gs-chev li:first-child{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%)}
+.gs-chev strong{display:block;font-size:14px;font-weight:600}
+.gs-plat{background:var(--box-fill);border:1px solid var(--box-line);padding:11px 14px;text-align:center}
+.gs-users{display:flex;align-items:center;gap:10px}
+.gs-users span{flex:1;justify-content:center;background:var(--box-fill);border:1px solid var(--box-line);padding:11px 10px}
+@media(max-width:900px){.gs-steps{grid-template-columns:1fr 1fr;gap:10px}.gs-steps li::after{display:none}}
+@media(max-width:760px){.gs{padding:14px}.gs-steps{grid-template-columns:1fr}.gs-steps li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;text-align:left;align-items:center}.gs-n{margin:0;grid-row:span 2}.gs-row{grid-template-columns:1fr;gap:6px}.gs-chev{grid-template-columns:1fr}.gs-chev li,.gs-chev li:first-child{clip-path:none;border:1px solid var(--box-line)}.gs-users,.gs-cust{flex-direction:column;align-items:stretch;gap:6px}.gs-users .gs-x,.gs-cust .gs-x{display:none}.gs-cust span{justify-content:center}}
 </style></head>
 <body class="dark"><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="index.html"><span class="brand-name">LI GARDNER</span><span class="brand-tagline">Research • Design • AI experience</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="work.html" >Work</a><a href="about.html" >About</a><a href="cv.html" >CV</a><span class="nav-contact"><a class="nav-icon" href="https://www.linkedin.com/in/ligardner/" target="_blank" rel="noopener" aria-label="Li Gardner on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" fill="#fff"/><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.31h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.95 3.52 4.49v5.27Z"/></svg></a></span></nav></header><main id="main">
 
 <section class="rm-hero">
   <div>
     <div class="eyebrow">GSCF (by BlackRock) · Supply chain finance / Service transformation</div>
-    <h1>Redesigning a digital service for supply-chain finance operations.</h1>
+    <h1>Supply-chain finance service design.</h1>
     <p class="case-deck">After a merger, one company brought the operational expertise and the other the digital platform. I connected them: modelling the operation, identifying the bottlenecks and leading the work to a development-ready MVP.</p>
   </div>
   <div class="rm-hero-media"><img src="assets/gscf-hero-v3.png" width="1122" height="1402" fetchpriority="high" decoding="async" alt="Cargo ship at a coastal container port behind an illustrative phone screen showing Raise dispute, Review and respond, and Resolve stages"><div class="visual-note">Illustrative dispute journey inspired by the project design</div></div>
@@ -154,7 +182,7 @@ body{--case-accent:#22534a;--case-accent-soft:#e2eeea}
 <dl class="rm-glance" aria-label="Project at a glance">
   <div><dt>My role</dt><dd>Strategic Service Design Lead</dd></div>
   <div><dt>Type</dt><dd>Consulting + Delivery</dd></div>
-  <div><dt>Duration</dt><dd>8 weeks</dd></div>
+  <div><dt>Duration</dt><dd>8 weeks (2023–2024)</dd></div>
   <div><dt>Focus</dt><dd>Supply-chain finance · Process modelling · Service transformation · MVP</dd></div>
   <div><dt>Design</dt><dd>Service blueprinting · North Star concept · Atomic UI design</dd></div>
   <div><dt>Research</dt><dd>Stakeholder interviews · System demonstrations · Moderated user testing</dd></div>
@@ -172,8 +200,7 @@ body{--case-accent:#22534a;--case-accent-soft:#e2eeea}
     <li>
       <div class="rm-step"><span>02 Understand</span><b>Task</b></div>
       <h3>Model the operation and find where the service was breaking down.</h3>
-      <p>I led the modelling of the end-to-end process across buyers, suppliers and operations. The current dispute process showed:</p>
-      <ul><li>Multiple handoffs</li><li>Missing information</li><li>Delays</li><li>Lack of visibility</li></ul>
+      <p>I led the modelling of the end-to-end process across buyers, suppliers and operations.</p>
       <p class="rm-result">Dependencies and service pain made visible.</p>
     </li>
     <li>
@@ -193,22 +220,14 @@ body{--case-accent:#22534a;--case-accent-soft:#e2eeea}
 
 <section class="rm-section" aria-labelledby="flow-title">
   <div class="rm-section-head"><h2 id="flow-title">From complex operation to digital service</h2><p>The service I modelled and redesigned</p></div>
-  <figure class="rm-flow-wrap" style="margin:0">
-    <ol class="rm-flow" style="--steps:7">
-      <li><strong>Buyer / supplier event</strong></li>
-      <li><strong>Current operation</strong><small>Manual, fragmented</small></li>
-      <li><strong>Process modelling</strong><small>Dependencies</small></li>
-      <li class="rm-key"><strong>Bottleneck analysis</strong><small>Pain points</small></li>
-      <li><strong>North Star service</strong><small>Customer-centred</small></li>
-      <li><strong>MVP definition</strong><small>Development-ready</small></li>
-      <li><strong>Wider rollout</strong><small>Now / Next / Later</small></li>
-    </ol>
-    <figcaption class="rm-swim">
-      <div class="rm-swim-row"><span class="rm-swim-label">Customer</span><div class="rm-swim-lane rm-swim-pair"><span>Buyer</span><i aria-hidden="true">↔</i><span>Supplier</span></div></div>
-      <div class="rm-swim-row"><span class="rm-swim-label">Service</span><ol class="rm-swim-lane rm-swim-steps" style="--lanes:4"><li><b>Raise dispute</b><small>Clear entry points</small></li><li><b>Share evidence</b><small>Guided information</small></li><li><b>Collaborate</b><small>Shared visibility</small></li><li><b>Resolve</b><small>Faster, clearer outcomes</small></li></ol></div>
-      <div class="rm-swim-row"><span class="rm-swim-label">Platform</span><div class="rm-swim-lane rm-swim-pair"><span>Peridot platform (shared digital infrastructure)</span></div></div>
-      <div class="rm-swim-row"><span class="rm-swim-label">Users</span><div class="rm-swim-lane rm-swim-pair"><span>Global Operations</span><i aria-hidden="true">↔</i><span>Product</span><i aria-hidden="true">↔</i><span>SMEs</span><i aria-hidden="true">↔</i><span>Engineering</span></div></div>
-    </figcaption>
+  <figure class="rm-flow-wrap gs" style="margin:0">
+    <ol class="gs-steps"><li><b class="gs-n">01</b><strong>Buyer / supplier event</strong></li><li><b class="gs-n">02</b><strong>Current operation</strong><small>Manual, fragmented</small></li><li><b class="gs-n">03</b><strong>Process modelling</strong><small>Dependencies</small></li><li><b class="gs-n">04</b><strong>Bottleneck analysis</strong><small>Pain points</small></li><li><b class="gs-n">05</b><strong>North Star service</strong><small>Customer-centred</small></li><li><b class="gs-n">06</b><strong>MVP definition</strong><small>Development-ready</small></li><li><b class="gs-n">07</b><strong>Wider rollout</strong><small>Now / Next / Later</small></li></ol>
+    <div class="gs-lanes">
+      <div class="gs-row"><span class="gs-label">Customer</span><div class="gs-lane gs-cust"><span><svg class="gs-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Buyer</span><i class="gs-x" aria-hidden="true">↔</i><span><svg class="gs-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Supplier</span></div></div>
+      <div class="gs-row"><span class="gs-label">Service</span><ol class="gs-lane gs-chev"><li><strong>Raise dispute</strong><small>Clear entry points</small></li><li><strong>Share evidence</strong><small>Guided information</small></li><li><strong>Collaborate</strong><small>Shared visibility</small></li><li><strong>Resolve</strong><small>Faster, clearer outcomes</small></li></ol></div>
+      <div class="gs-row"><span class="gs-label">Platform</span><div class="gs-lane gs-plat">Platform (shared digital infrastructure)</div></div>
+      <div class="gs-row"><span class="gs-label">Users</span><div class="gs-lane gs-users"><span><svg class="gs-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Global Operations</span><i class="gs-x" aria-hidden="true">↔</i><span><svg class="gs-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Product</span><i class="gs-x" aria-hidden="true">↔</i><span><svg class="gs-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>SMEs</span><i class="gs-x" aria-hidden="true">↔</i><span><svg class="gs-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Engineering</span></div></div>
+    </div>
   </figure>
 </section>
 
