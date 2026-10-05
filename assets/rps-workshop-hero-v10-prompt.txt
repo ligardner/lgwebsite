@@ -1,0 +1,6 @@
+Perform ONLY two precise edits to the supplied workshop photograph.
+1. Change the title at the top of the printed paper from "RPS SERVICE BLUEPRINT" to EXACTLY "SERVICE BLUEPRINT". Remove RPS completely, keep the same black bold font, title position and scale. No JANUS or any replacement branding.
+2. Remove the open gesturing hand and its raised forearm emerging from the right foreground person's grey sleeve in the lower centre/right of the image. Reconstruct the underlying printed blueprint lines, boxes and paper texture naturally where the hand was. The right foreground colleague remains present with arm lowered OUT OF FRAME. Do not remove this person or alter their head, hair or shoulder.
+Essential invariant: KEEP the left-side woman's raised hand holding the black marker/pen, its arm and its annotation pose EXACTLY as in the source. Keep all workshop participants, close over-the-shoulder camera angle, paper print, fine service blueprint detail, coloured swimlanes, sticky notes, clips, daylight, natural realistic photograph and portrait 1122x1402 composition unchanged. No additional hands, no screen, no plants, no new objects or watermark.
+
+Edited from rps-workshop-hero-v9.png using the built-in image tool.
