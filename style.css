@@ -71,3 +71,15 @@ footer{display:grid;grid-template-columns:1fr auto;column-gap:32px;row-gap:4px;a
 footer{position:relative}footer::before{content:'';position:absolute;top:0;left:48px;right:48px;border-top:1px solid var(--line)}@media(max-width:760px){footer::before{left:24px;right:24px}}
 
 .nav-icon svg{width:24px;height:24px}
+
+/* Availability notification banner */
+.open-banner{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:#e6f6ec;color:#123d24;border-bottom:1px solid #c5e8d2;font-size:14px;line-height:1.4;padding:9px 24px;text-align:center}
+.open-banner a{color:#0f5c30;font-weight:600;text-decoration:none}
+.open-banner a:hover{color:var(--red)}
+.open-dot{position:relative;width:9px;height:9px;border-radius:50%;background:#1fa855;flex:none}
+.open-dot:after{content:'';position:absolute;inset:0;border-radius:50%;background:#1fa855;animation:openpulse 2s ease-out infinite}
+@keyframes openpulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.dark .open-banner{background:#e6f6ec;border-bottom:0}
+@media(min-width:1400px){body>.open-banner{margin:-16px 0 16px}}
+@media(max-width:760px){.open-banner{font-size:13px;padding:8px 16px;gap:8px}}
+@media(prefers-reduced-motion:reduce){.open-dot:after{animation:none}}
