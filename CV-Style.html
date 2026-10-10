@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Li Gardner — A4 CV CMS</title>
+<style>
+:root{
+  --a4-w:210mm;
+  --a4-h:297mm;
+  --page-margin:12mm;
+  --sidebar:34%;
+  --gap:8mm;
+  --text:#1f2933;
+  --muted:#68737d;
+  --line:#d6dce1;
+  --panel:#f4f6f8;
+  --accent:#111827;
+  --coral:#E56F5B;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#e8ecef;color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.38}
+body{padding-bottom:24px}
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:12px 16px;background:#fff;border-bottom:1px solid var(--line)
+}
+button{
+  border:1px solid #c9d0d6;background:#fff;padding:9px 13px;border-radius:7px;
+  cursor:pointer;font-weight:700
+}
+button.primary{background:#111827;color:#fff;border-color:#111827}
+.status{margin-left:auto;color:var(--muted);font-size:13px}
+.hint{width:var(--a4-w);margin:12px auto 0;color:var(--muted);font-size:12px}
+.pages{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:12px}
+.page{
+  width:var(--a4-w);
+  height:var(--a4-h);
+  background:#fff;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,.10);
+  padding:var(--page-margin);
+}
+.page-inner{
+  height:calc(var(--a4-h) - (2 * var(--page-margin)));
+  min-height:calc(var(--a4-h) - (2 * var(--page-margin)));
+  overflow:hidden;
+}
+.header{
+  border-bottom:2px solid var(--accent);
+  padding-bottom:6mm;
+  margin-bottom:6mm
+}
+h1{margin:0 0 4px;font-size:29px;letter-spacing:.02emcolor:var(--coral);}
+.headline{font-size:14.5px;font-weight:700;color:#2f3b45;margin-bottom:6px}
+.contact{font-size:11.4px;color:var(--muted)}
+.grid{
+  display:grid;
+  grid-template-columns:var(--sidebar) 1fr;
+  gap:var(--gap);
+  align-items:start
+}
+aside{background:var(--panel);padding:6mm 5.5mm}
+main{min-width:0}
+.section{margin-bottom:4.5mm; break-inside:auto; page-break-inside:auto}
+.section:last-child{margin-bottom:0}
+.section h2{
+  margin:0 0 7px;
+  font-size:12.2px;
+  letter-spacing:.075em;
+  text-transform:uppercase;
+  color:var(--coral)
+}
+.section h3{margin:0 0 2px;font-size:13.1px}
+p{margin:0 0 6px;font-size:10.75px}
+ul{margin:0 0 0 16px;padding:0}
+li{margin-bottom:4px;font-size:10.55px}
+.case{margin-bottom:4.5mm; break-inside:auto; page-break-inside:auto}
+.case:last-child{margin-bottom:0}
+.case-title{font-size:13.1px;font-weight:700;margin-bottom:2px}
+.rolemeta{font-size:10.4px;color:var(--muted);margin-bottom:5px}
+.outcome{border-left:3px solid #9ca6af;padding-left:7px;font-weight:600;margin-top:5px}
+.flow{font-size:10.8px;font-weight:700;line-height:1.65}
+.small p,.small li{font-size:10.15px}
+.page-number{
+  position:absolute;
+  left:var(--page-margin);
+  right:var(--page-margin);
+  bottom:4mm;
+  text-align:center;
+  font-size:9.5px;
+  color:#7a858f;
+  line-height:1;
+}
+[contenteditable="true"]{outline:none;border-radius:3px}
+[contenteditable="true"]:hover{background:#fff5cc}
+[contenteditable="true"]:focus{background:#ffef9f;box-shadow:0 0 0 2px #e4c84f55}
+
+
+.section h2,
+.section h3,
+.case-title,
+.rolemeta{
+  break-after:avoid;
+  page-break-after:avoid;
+}
+.case p,
+.case ul,
+.case li{
+  break-inside:auto;
+  page-break-inside:auto;
+}
+
+
+.page-1 aside{
+  padding:6mm 5.5mm;
+  margin:0;
+  align-self:start;
+}
+
+
+.page-1 .grid{
+  align-items:start;
+}
+.page-1 aside{
+  align-self:start;
+}
+
+
+.cover-page{
+  display:flex;
+  flex-direction:column;
+}
+.cover-letter{
+  max-width:165mm;
+  margin:0 auto;
+  font-size:11.4px;
+  line-height:1.52;
+}
+.cover-letter p{
+  font-size:11.4px;
+  margin:0 0 5.5mm;
+}
+.cover-letter .greeting,
+.cover-letter .signoff{
+  margin-bottom:4.5mm;
+}
+.cover-letter .why{
+  margin:2mm 0 7mm;
+}
+.cover-letter .why-block{
+  margin-bottom:4.5mm;
+}
+.cover-letter .why-block strong{
+  display:block;
+  margin-bottom:1.5mm;
+  font-size:11.8px;
+}
+.cover-contact{
+  margin-top:auto;
+  padding-top:8mm;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:10.5px;
+}
+
+
+/* The content area runs from 12mm below the top edge to 12mm above the bottom edge.
+   Page numbers sit inside the bottom margin and do not reduce usable content height. */
+
+@media (max-width:900px){
+  .hint{width:auto;margin:10px 12px 0}
+  .page{
+    width:min(100vw - 20px, 210mm);
+    height:auto;
+    aspect-ratio:210/297;
+    transform-origin:top center;
+  }
+}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff;width:210mm}
+  body{padding:0}
+  .toolbar,.hint{display:none!important}
+  .pages{gap:0;margin:0;display:block}
+  .page{
+    width:210mm!important;
+    height:297mm!important;
+    margin:0!important;
+    padding:var(--page-margin)!important;
+    box-shadow:none!important;
+    break-after:page;
+    page-break-after:always;
+  }
+  .page:last-child{break-after:auto;page-break-after:auto}
+  [contenteditable="true"]:hover,[contenteditable="true"]:focus{background:transparent;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="primary" onclick="exportPDF()">Export as PDF</button>
+  <button onclick="saveCV()">Save edits</button>
+  <button onclick="loadCV()">Load saved</button>
+  <button onclick="resetCV()">Reset</button>
+  <span class="status" id="status">Each sheet is exact A4: 210 × 297 mm.</span>
+</div>
+
+<div class="hint">Edit any text directly. PDF export preserves the fixed A4 pages and page numbering.</div>
+
+<div class="pages" id="cv">
+
+<section class="page cover-page">
+  <div class="page-inner">
+    <header class="header">
+      <h1 contenteditable="true" style="color:var(--coral);">LI GARDNER</h1>
+      <div class="headline" contenteditable="true">AI Innovation & Experience Lead • Executive Engagements • Strategy to Evidence & Action</div>
+      <div class="contact" contenteditable="true">Manchester, United Kingdom • Hybrid • Open to travel • +44 7742 601575 • li.gardner.design@gmail.com • linkedin.com/in/ligardner</div>
+    </header>
+
+    <div class="cover-letter">
+      <p class="greeting" contenteditable="true">Dear Hiring Manager,</p>
+
+      <p contenteditable="true">I am writing to apply for the Associate Director — AI Innovation Lab, Human-centred Design role in Liverpool.</p>
+
+      <p contenteditable="true">What interests me about this role is that it goes beyond running innovation sessions. The need is to help senior clients turn AI ambition into a clear opportunity, credible evidence and an owned next step — while creating client confidence, follow-on work and reusable approaches for Kyndryl.</p>
+
+      <p contenteditable="true">That is close to the work I have been doing across consulting, transformation and AI-enabled services. I work as a catalyst and structured, creative problem-solver — bringing human empathy together with a practical understanding of business and technology, and turning complexity into simple, workable solutions.</p>
+
+      <div class="why">
+        <div class="why-block">
+          <strong contenteditable="true">I know how to shape the right problem with senior leaders.</strong>
+          <p contenteditable="true">At Royal Mail, I challenged a broad UI brief with the CPO and CEO and refocused investment on the journeys that would move the needle. We delivered value in 3 months rather than 12, improved lead time to market from 18 months to 4 weeks, and lifted the App Store rating from 1.7 to 4.6.</p>
+        </div>
+
+        <div class="why-block">
+          <strong contenteditable="true">I can connect AI experimentation to business value and follow-on work.</strong>
+          <p contenteditable="true">Through the AWS DDCX partnership, I helped create a Data & AI-driven customer experience proposition for C-level leaders, using innovation sprints to identify catalyst use cases and build momentum from early value. The work generated qualified opportunities, 3 senior leadership workshops and 2 follow-on SOW proposals.</p>
+        </div>
+
+        <div class="why-block">
+          <strong contenteditable="true">I build evidence and alignment so organisations can actually make decisions.</strong>
+          <p contenteditable="true">At the Met Office, I created an evidence-based innovation framework aligned to organisational and business strategy, supported by a Gemini-based evaluation agent. It gave teams a shared basis for moving ideas forward and helped 6 science-led propositions progress into quarterly product planning.</p>
+        </div>
+      </div>
+
+      <p contenteditable="true">My background is in human-centred design, and my work increasingly sits at the intersection of business strategy, consulting and technology. I am eager to understand the challenges Kyndryl and its clients are facing, test some of the assumptions I’ve formed through my research, and shape AI opportunities into better services, stronger client relationships and growing business.</p>
+
+      <p class="signoff" contenteditable="true">Yours sincerely,<br><strong>Li Gardner</strong><br>29 September 2026</p>
+    </div>
+  </div>
+  
+</section>
+
+
+<!-- PAGE 1 -->
+<section class="page page-1">
+  <div class="page-inner">
+    <header class="header">
+      <h1 contenteditable="true" style="color:var(--coral);">LI GARDNER</h1>
+      <div class="headline" contenteditable="true">AI Innovation & Experience Lead • Executive Engagements • Strategy to Evidence & Action</div>
+      <div class="contact" contenteditable="true">Manchester, United Kingdom • Hybrid • Open to travel • +44 7742 601575 • li.gardner.design@gmail.com • linkedin.com/in/ligardner</div>
+    </header>
+
+    <div class="grid">
+      <aside>
+        <section class="section">
+          <h2 contenteditable="true">About</h2>
+          <p contenteditable="true">I’m Li (pronounced “Lee”), an innovation and experience leader with 20+ years helping senior teams turn ambiguous business and technology opportunities into decisions worth funding across financial services, healthcare, pharma, government, logistics and retail.</p>
+          <p contenteditable="true">I lead engagements from executive brief to evidence: framing the value hypothesis, aligning business, user and technology priorities, directing multidisciplinary teams through co-design and rapid prototyping, and turning what we learn into an owned next step.</p>
+          <p contenteditable="true">I design human-AI services by defining what people, agents and systems should each know, decide and do — including decision rights, human checkpoints, escalation, accountability and traceability.</p>
+        </section>
+
+        <section class="section">
+          <h2 contenteditable="true">What I bring</h2>
+          <ul>
+            <li contenteditable="true">Executive engagement & constructive challenge</li>
+            <li contenteditable="true">Opportunity framing & value hypotheses</li>
+            <li contenteditable="true">Human-AI workflow and decision design</li>
+            <li contenteditable="true">Rapid prototyping & thin-slice MVPs</li>
+            <li contenteditable="true">Business cases, proposals & P&L ownership</li>
+            <li contenteditable="true">Responsible AI in regulated environments</li>
+            <li contenteditable="true">Reusable playbooks, frameworks & design systems</li>
+            <li contenteditable="true">Coaching & multidisciplinary team leadership</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 contenteditable="true">How I run an engagement</h2>
+          <div class="flow" contenteditable="true">Shape & qualify → Frame & align → Co-design & prototype → Test & evidence → Decide & fund → Mobilise, scale & reuse</div>
+        </section>
+
+
+      </aside>
+
+      <main>
+        <section class="section">
+          <h2 contenteditable="true">Selected AI & Innovation Engagements</h2>
+
+          <div class="case">
+            <div class="case-title" contenteditable="true">AWS DDCX — creating a Data & AI-driven CX growth proposition</div>
+            <div class="rolemeta" contenteditable="true">Business Consultant & Service Design Lead • Zühlke / AWS • 2024–2025</div>
+            <p contenteditable="true">Co-created a joint Data & AI-driven customer experience proposition designed to engage C-level leaders, identify catalyst use cases and create a flywheel from early value to scaled benefit.</p>
+            <p class="outcome" contenteditable="true">Outcome: Generated qualified opportunities, led 3 senior leadership workshops and shaped 2 follow-on SOW proposals, with positive client and partner response.</p>
+          </div>
+
+          <div class="case">
+            <div class="case-title" contenteditable="true">UK police force — aligning partners around a fundable AI pilot</div>
+            <div class="rolemeta" contenteditable="true">Engagement Lead • Zühlke, with AWS and academic evidence partner</div>
+            <p contenteditable="true">Brought delivery, technology and evidence partners around a shared definition of success, clear roles and responsibilities, and a practical route from proof of concept to business case and funding.</p>
+            <p class="outcome" contenteditable="true">Outcome: Turned an isolated GenAI demo into a fundable agentic AI pilot proposition for crime prevention, with clear human oversight and evidence measures.</p>
+          </div>
+
+          <div class="case">
+            <div class="case-title" contenteditable="true">Met Office — turning innovation ideas into evidence-based decisions</div>
+            <div class="rolemeta" contenteditable="true">Strategy & Design Principal • Made Tech • 2026</div>
+            <p contenteditable="true">Created an evidence-based innovation framework aligned to organisational and business strategy, supported by a Gemini-based evaluation agent to compare ideas consistently against value, impact, effort, differentiation and novelty.</p>
+            <p class="outcome" contenteditable="true">Outcome: Provided the evidence and stakeholder buy-in needed to move science-led propositions into the product roadmap.</p>
+          </div>
+
+          <div class="case">
+            <div class="case-title" contenteditable="true">Royal Mail — identifying what moved the needle for customers</div>
+            <div class="rolemeta" contenteditable="true">Experience Design Lead • Zühlke • 2021–2022</div>
+            <p contenteditable="true">Reframed a broad UI refresh around the customer journeys and behaviours most strongly linked to retention, channel shift and measurable customer value.</p>
+            <p class="outcome" contenteditable="true">Outcome: Delivered customer value in 3 months rather than the estimated 12 months, improved lead time to market from 18 months to 4 weeks, and lifted the App Store rating from 1.7 to 4.6.</p>
+
+          <div class="case">
+            <div class="case-title" contenteditable="true">Royal Pharmaceutical Society — from technology replacement to business transformation</div>
+            <div class="rolemeta" contenteditable="true">Strategic Transformation Lead • Zühlke • 2024–2025</div>
+            <p contenteditable="true">Challenged a technology-led programme to retire 13 legacy publishing systems and reframed it around business transformation: redesigned workflows, operating model and service interactions alongside data architecture to create an AI-ready foundation.</p>
+            <p class="outcome" contenteditable="true">Outcome: Established a shared transformation path across business, service, data and technology, reducing manual effort by 60%+ and achieving 90%+ adoption on the first rollout.</p>
+          </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="page-number">Page 1 of 3</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="page-inner">
+    <div class="grid">
+      <aside>
+        <section class="section small">
+          <h2 contenteditable="true">AI practice</h2>
+          <p contenteditable="true">AI is embedded in how I work day to day. I build and use AI agents and agentic workflows to streamline research, analysis, consulting and design production — creating more consistent, reusable ways of working that can be adapted to different client contexts.</p>
+          <ul>
+            <li contenteditable="true">AI innovation sprints</li>
+            <li contenteditable="true">Gemini-based innovation evaluation agent</li>
+            <li contenteditable="true">Human-AI decision-support and workflow design</li>
+            <li contenteditable="true">AI-assisted research synthesis & concept development</li>
+            <li contenteditable="true">Reusable agent workflows, consulting skills, prompts & templates</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 contenteditable="true">Sectors & clients</h2>
+          <p contenteditable="true"><strong>Financial services:</strong> HSBC, EFG, BlackRock, Hannover Re</p>
+          <p contenteditable="true"><strong>Health & pharma:</strong> NHS, AXA Health, Regeneron, Bayer, Royal Pharmaceutical Society</p>
+          <p contenteditable="true"><strong>Public sector:</strong> Met Office, DCMS, DBT, NHS, UKRI, policing</p>
+          <p contenteditable="true"><strong>Retail & logistics:</strong> Royal Mail, Co-op, TUI, Amway</p>
+        </section>
+
+        <section class="section small">
+          <h2 contenteditable="true">Tools</h2>
+          <p contenteditable="true">Claude • ChatGPT / Codex • Gemini AI Studio • Microsoft Copilot • Figma • FigJam • Miro AI • Mural • Lucidchart • Maze • UserTesting • Jira • Confluence • Adobe Creative Suite</p>
+        </section>
+      </aside>
+
+      <main>
+        <section class="section">
+          <h2 contenteditable="true">Experience</h2>
+
+          <div class="case">
+            <h3 contenteditable="true">Strategy & Design Principal</h3>
+            <div class="rolemeta" contenteditable="true">Made Tech • Feb 2026 – Sep 2026 • Manchester / London</div>
+            <p contenteditable="true">Principal consultant and engagement lead owning client scope, P&L, business cases and senior investment decisions across complex transformation programmes.</p>
+            <ul>
+              <li contenteditable="true">Led an innovation evaluation approach and AI agent that helped senior leaders prioritise ideas against organisational strategy, value and delivery constraints.</li>
+              <li contenteditable="true">Led a 6-week data and service scoping engagement across multiple organisations; the resulting blueprint and costed roadmap became the basis for a formal procurement.</li>
+              <li contenteditable="true">Led an 11-week make-or-buy discovery across multiple departments, reframing a technology-selection question into a broader shared-information and operating-model challenge.</li>
+            </ul>
+          </div>
+
+          <div class="case">
+            <h3 contenteditable="true">Principal Business Consultant</h3>
+            <div class="rolemeta" contenteditable="true">Zühlke Group • Aug 2021 – Dec 2025 • Manchester / London / Zurich / Frankfurt / Singapore</div>
+            <p contenteditable="true">Business consultant, strategic-design leader and leadership advisor shaping opportunities and leading discovery and delivery across banking, investment management, healthcare, government, logistics and regulated professional services.</p>
+            <ul>
+              <li contenteditable="true">Delivered AI innovation sprints through the AWS DDCX partnership, demonstrating a 75% efficiency gain from concept to design.</li>
+              <li contenteditable="true">Global banking AI content pilot: combined operating-model design with AI-augmented workflow design, defining what AI supports, what people decide and where accountability sits.</li>
+              <li contenteditable="true">Global supply-chain finance: reframed a three-module platform rebuild around one dispute-management MVP; led a 5-person team through framing, prototyping, user testing and handover to engineering in eight weeks.</li>
+              <li contenteditable="true">Royal Pharmaceutical Society: reframed a 13-system technology replacement into business transformation across workflow, service model and data architecture, creating an AI-ready foundation; reduced manual effort by 60%+ and achieved 90%+ adoption in the first rollout.</li>
+              <li contenteditable="true">HSBC UK Wealth: research and a leadership workshop shifted strategy from copying an APAC investment product toward building saving confidence; followed by 93% year-on-year growth in new investment business.</li>
+              <li contenteditable="true">Business development: led transformation bids and helped win a Phase 2 place on a large transformation framework.</li>
+            </ul>
+          </div>
+
+          <div class="case">
+            <h3 contenteditable="true">Experience Lead for AXA Health / Head of User Experience</h3>
+            <div class="rolemeta" contenteditable="true">LovedBy Design — AXA Health digital venture • Apr 2020 – Jul 2021</div>
+            <ul>
+              <li contenteditable="true">Led researchers, service designers, UX/UI designers and business analysts working with clinicians, behavioural scientists, product teams and technology partners.</li>
+              <li contenteditable="true">Five clinically approved programmes launched in the first year, 3 new partners onboarded and a potential reach of 2M+ members.</li>
+              <li contenteditable="true">Head of UX for an AI-enabled Type 1 diabetes platform for young people, combining rapid prototyping, hypothesis-driven design, expert co-design, user testing and scalable design patterns.</li>
+            </ul>
+          </div>
+          <div class="case">
+            <h3 contenteditable="true">Lead Experience Designer</h3>
+            <div class="rolemeta" contenteditable="true">EPAM Systems • Aug 2017 – Mar 2020 • Manchester / London / New York / San Francisco</div>
+            <ul>
+              <li contenteditable="true">Regeneron: Lead UX Consultant on a 21-week R&D transformation discovery involving 40+ stakeholders; translated research into 17 problem statements and 13 tested concepts, feeding a sequenced roadmap with 3 costed architecture options.</li>
+              <li contenteditable="true">Led a design system across 13 international markets, reducing time-to-market by 45%.</li>
+              <li contenteditable="true">Redesigned Thomson Reuters Convene across iOS and Android, increasing engagement by 30%+.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="page-number">Page 2 of 3</div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <div class="page-inner">
+    <div class="grid">
+      <aside>
+
+        <section class="section">
+          <h2 contenteditable="true">Languages</h2>
+          <p contenteditable="true">English • Mandarin Chinese</p>
+        </section>
+
+        <section class="section">
+          <h2 contenteditable="true">Interests</h2>
+          <p contenteditable="true">Reading • Writing • Travelling • Running • Walking outdoors • Yoga • Cooking • Documentaries</p>
+        </section>
+      </aside>
+
+      <main>
+        <section class="section">
+          <h2 contenteditable="true">Earlier Career</h2>
+
+
+
+
+
+
+
+          <div class="case">
+            <h3 contenteditable="true">Independent Consultant</h3>
+            <div class="rolemeta" contenteditable="true">LiGardner Design • 2014–2017 • UK</div>
+            <p contenteditable="true">Business, service and experience design for financial-services and retail clients, including omnichannel experiences that increased conversion by 40%+.</p>
+          </div>
+
+          <div class="case">
+            <h3 contenteditable="true">Earlier Career</h3>
+            <div class="rolemeta" contenteditable="true">2005–2014</div>
+            <p contenteditable="true">Design Lead — NuBlue • Senior UX Designer — LateRooms / TUI • Interaction Designer — TBWA\Manchester • Interaction Designer — Microsoft Shanghai</p>
+            <p contenteditable="true">Built a foundation in digital product design, online commerce, visual communication and customer experience across technology, travel and global consumer brands.</p>
+          </div>
+          <section class="section">
+            <h2 contenteditable="true">Education</h2>
+            <p contenteditable="true"><strong>Master’s Degree — Art Direction</strong><br>China Academy of Art • 2005–2008</p>
+            <p contenteditable="true"><strong>Bachelor’s Degree — Multimedia & Web Design</strong><br>China Academy of Art • 2001–2005</p>
+            <p contenteditable="true"><em>China Academy of Art (CAA) is one of Asia’s most prestigious art and design institutions, known for combining Chinese cultural traditions with contemporary art, design and architecture.</em></p>
+          </section>
+          <section class="section small">
+            <h2 contenteditable="true">Certificates</h2>
+            <ul>
+              <li contenteditable="true">Gen AI Leader — Google Cloud</li>
+              <li contenteditable="true">Business Innovation — IDEO</li>
+              <li contenteditable="true">Human-Centred Service Design — IDEO</li>
+              <li contenteditable="true">Design Strategy — IDEO</li>
+              <li contenteditable="true">Influential Storytelling — IDEO</li>
+              <li contenteditable="true">SPIN Selling — Huthwaite International</li>
+              <li contenteditable="true">Professional Scrum Master I — Scrum.org</li>
+              <li contenteditable="true">Professional Agile Leadership I — Scrum.org</li>
+            </ul>
+          </section>
+          <section class="section small">
+            <h2 contenteditable="true">Thought Leadership</h2>
+            <ul>
+              <li contenteditable="true">AWS global webinar & podcast — Data & AI-driven Customer Experience</li>
+              <li contenteditable="true">Podcast — Ethnic Minority Women in Tech, SheCanCode</li>
+              <li contenteditable="true">Speaker — Inclusive Design, Women in Business and Tech</li>
+              <li contenteditable="true">White paper — Consumer Duty and Service Design</li>
+              <li contenteditable="true">White paper — Omnichannel Trends in Private Banking</li>
+              <li contenteditable="true">Article — Inclusive Design</li>
+            </ul>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="page-number">Page 3 of 3</div>
+</section>
+
+</div>
+
+<script>
+const STORAGE_KEY='li-gardner-a4-cv-v3';
+const original=document.getElementById('cv').innerHTML;
+
+function setStatus(msg){document.getElementById('status').textContent=msg}
+
+function saveCV(){
+  localStorage.setItem(STORAGE_KEY,document.getElementById('cv').innerHTML);
+  setStatus('Saved in this browser.');
+}
+function loadCV(){
+  const s=localStorage.getItem(STORAGE_KEY);
+  if(!s){setStatus('No saved version found.');return}
+  document.getElementById('cv').innerHTML=s;
+  bindEdits();
+  setStatus('Saved version loaded.');
+}
+function resetCV(){
+  if(!confirm('Reset all edits and restore the original CV?'))return;
+  localStorage.removeItem(STORAGE_KEY);
+  document.getElementById('cv').innerHTML=original;
+  bindEdits();
+  setStatus('Original restored.');
+}
+function exportPDF(){window.print()}
+function bindEdits(){
+  document.querySelectorAll('#cv [contenteditable="true"]').forEach(el=>{
+    el.addEventListener('input',()=>setStatus('Unsaved changes.'));
+  });
+}
+bindEdits();
+</script>
+</body>
+</html>
